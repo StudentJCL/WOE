@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for hiding categories */
+        .product-category {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with category buttons -->
+    <header class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <h1>Product Categories</h1>
+            <div class="btn-group" role="group" aria-label="Category buttons">
+                <button class="btn btn-secondary" onclick="showCategory('laptop')">Laptop</button>
+                <button class="btn btn-secondary" onclick="showCategory('cellphone')">Cellphone</button>
+                <button class="btn btn-secondary" onclick="showCategory('camera')">Camera</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content section -->
+    <section id="product-display" class="container py-5">
+        <div id="laptop" class="product-category">
+            <h2>Laptops</h2>
+            <p>Discover the latest laptops from top brands.</p>
+        </div>
+        <div id="cellphone" class="product-category">
+            <h2>Cellphones</h2>
+            <p>Find the best cellphones for your needs.</p>
+        </div>
+        <div id="camera" class="product-category">
+            <h2>Cameras</h2>
+            <p>Explore high-quality cameras for photography enthusiasts.</p>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and dependencies (for dropdowns, modals, etc.) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // Function to show the category based on button click
+        function showCategory(category) {
+            // Hide all categories
+            const categories = document.querySelectorAll('.product-category');
+            categories.forEach(category => {
+                category.style.display = 'none';
+            });
+
+            // Show the selected category
+            const selectedCategory = document.getElementById(category);
+            if (selectedCategory) {
+                selectedCategory.style.display = 'block';
+            }
+        }
+
+        // Default to show laptops on page load
+        window.onload = function() {
+            showCategory('laptop');
+        };
+    </script>
+</body>
+</html>
